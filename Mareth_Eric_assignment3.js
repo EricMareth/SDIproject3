@@ -4,31 +4,29 @@
 // Story with flowchart construction
 
 // Global Variables
-var droidA = "Tobor";
-var droidB = "Robbie";
+var droidA = "Robbie";
+var droidB = "Tobor";
 var gettingRusty;
 var needsOil;
 
+// FlightList Object
 var flightList = {
-	destination : 	[
-						"Altair IV",
-						"DuMont",
-						"Tatooine"
-					],
-	dockingBay 	:	[	
-						57,	
-						"X9",
-						94
-					],
-	departure 	:	[
-						"19:56",
-						"19:49",
-						"20:17"
-					],
-	cargo 		:	[
-						"plastic educator",
-						"decoder rings",
-						["Luke", "Ben", "R2"]
-					],
+	upc	: 	{
+				destination	: 	"Altair IV",
+				dockingBay	:	57,
+				departure	:	"19:56",
+				cargo		:	"plastic educator"
+			},
+	gII :	{
+				destination	:	"DuMont",
+				dockingBay	:	"X9",
+				departure	:	"19:49",
+				cargo		:	"decoder rings"
+			},
+	mF 	:	{
+				destination	:	"Tatooine",
+				dockingBay	:	94,
+				departure	:	"20:17",
+				cargo		:	["Chewbacca", "Luke", "Ben", "R2"]
+			}
 };
-
