@@ -54,7 +54,8 @@ var impact = 480,
 		
 	};
 	
-state.timeStamp(state.seconds());
+console.log("The ship's computer chirped a warning");
+state.timeStamp(state.seconds()); 
 
 console.log("The Star Ship " + ship.name + " found itself hurling toward the planet " + ship.planet + ".");
 console.log("Captain " + ship.captain + " and the ship's droid " + ship.droid + " thought quickly about what to do.");
