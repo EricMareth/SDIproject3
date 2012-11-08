@@ -5,35 +5,45 @@
 
 
 var impact = 16,
-	cargo	= [" weapons", " ammunition", " food", " clothes", " tools"],
+	cargo	= [" weapons", " ammunition", " food", " alcohol", " tools"],
 	safe	= true
-	
+	question= '"What is it?"'
+	answer	= '"We have to jettison two crates from the cargo hold."'
 	state	= {
-		minutes : function(newTime){				// Number function
+		minutes : function(newTime){				// minutes function
 			while (impact > 0){ 		
 				impact--;
 				var newTime = impact;
 				return newTime
 			}
 		},
-		timeStamp : function(){						// 
+		timeStamp : function(){						// timeStamp accessor
 			if (state.minutes() > 10){
-				console.log("\"T-minus " + state.minutes() + " minutes until impact.\"");
+				console.log('"T-minus ' + state.minutes() + ' minutes until impact."');
+				return;
 			}
 			else{
-				console.log("\"Warning! It is now " + state.minutes() + " minutes until impact!\"")
+				console.log('"Warning! It is now ' + state.minutes() + ' minutes until impact!"')
 			};
 		},
 		
-		safe :	function(safety){
-			if (safety === true){
-				console.log("\"I see only one option, Captain " +ship.captain+ ".\"")
+		safety :	function(){						// safety procedure with nested conditional
+			if (safe === true){
+				if (state.minutes() > 10){
+					console.log('"I see only one option, Captain ' +ship.captain+ '."')
+				}
+				else{
+					console.log('"It IS our only chance to pull out of the planet gravity."')
+				};
 			}
 			else{
-				console.log("\"We are coming too close, Captain " +ship.captain+ ".\"")
+				console.log('"We are coming too close, Captain ' +ship.captain+ '."')
 			};
 		},
-		
+		notSafe :	function(){						// notSafe mutator
+			safe = false;
+			return safe;
+		}
 		
 	};
 	
@@ -44,14 +54,23 @@ console.log("Captain " + ship.captain + " and the ship's droid " + ship.droid + 
 
 state.timeStamp();
 
-console.log("\"" +ship.droid+ ", what are our options?\"");
-state.safe(true);
+console.log('"' +ship.droid+ ', what are our options?"');
+state.safety();
 
 state.timeStamp();
 
+console.log(question);
+console.log(answer);
 
 state.timeStamp();
+
+state.safety();
+
 state.timeStamp();
+
+state.notSafe();
+state.safety();
+
 state.timeStamp();
 state.timeStamp();
 	
